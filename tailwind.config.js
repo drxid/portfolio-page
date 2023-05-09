@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-
 export const content = ['./public/**/*.html', './src/**/*.{vue,js,ts,jsx,tsx}'];
+export const darkMode = 'class';
+
 export const theme = {
   fontSize: {
     xs: ['0.75rem', '1rem'],

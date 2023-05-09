@@ -1,17 +1,26 @@
 import React, { useState } from 'react'
 
-const ToggleDarkMode: React.FC = () => {
+type Props = {
+  size?: string
+}
+
+const ToggleDarkMode: React.FC<Props> = (props: Props) => {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode)
+    if (isDarkMode) {
+      document.body.classList.remove('dark')
+    } else {
+      document.body.classList.add('dark')
+    }
   }
 
   return (
 
-    <button onClick={toggleDarkMode} className={`group ${isDarkMode ? 'dark' : ''} border border-solid border-white dark:border-[#2F2F2F] inline-flex rounded-full p-0.5 gap-0.5`}>
-      <div className="p-2 bg-[#2F2F2F] rounded-full flex justify-center items-center group-hover:bg-[#343434] transition-colors">
-        <i className='block h-5 w-5'>
+    <button onClick={toggleDarkMode} className={`group ${isDarkMode ? 'dark' : ''} border border-solid border-[#2F2F2F] dark:border-[#E0E0E0] inline-flex justify-center items-center rounded-full p-0.5 gap-0.5`}>
+      <div className={`${props.size === 'small' ? 'p-1.5' : 'p-2'} ${!isDarkMode ? 'bg-[#2F2F2F] dark:bg-[#6d6d6d] group-hover:bg-[#343434]' : 'bg-transparent'}  rounded-full flex justify-center items-center transition-colors`}>
+        <i className={props.size === 'small' ? 'h-4 w-4' : 'h-5 w-5'}>
           <svg width="100%" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="Frame94_path-1-inside-1-1-105" fill="white">
               <path fillRule="evenodd" clipRule="evenodd" d="M19.35 12.5138C19.6518 11.7203 18.7609 11.0829 17.9591 11.3621C15.5919 12.1862 13.0053 12.0568 10.7942 10.7802C7.54552 8.9046 6.03607 5.08856 6.67803 1.2733C6.81416 0.464273 6.07838 -0.278702 5.35225 0.103137C2.17006 1.77653 0 5.1147 0 8.95972C0 14.4826 4.47715 18.9597 10 18.9597C14.2711 18.9597 17.9168 16.2821 19.35 12.5138Z" />
@@ -21,8 +30,8 @@ const ToggleDarkMode: React.FC = () => {
           </svg>
         </i>
       </div>
-      <div className="p-2 bg-transparent rounded-full flex justify-center items-center">
-        <i className='block h-5 w-5'>
+      <div className={`${props.size === 'small' ? 'p-1.5' : 'p-2'} ${isDarkMode ? 'bg-[#2F2F2F] dark:bg-[#6d6d6d] group-hover:bg-[#343434]' : 'bg-transparent'} rounded-full flex justify-center items-center transition-colors`}>
+        <i className={props.size === 'small' ? 'h-4 w-4' : 'h-5 w-5'}>
           <svg width="100%" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.2105 9.5H19M16.2105 9.5C16.2105 11.2314 15.5548 12.8097 14.4781 14M16.2105 9.5C16.2105 7.76858 15.5548 6.19032 14.4781 5M9.5 16.2105V19M9.5 16.2105C11.4747 16.2105 13.2502 15.3576 14.4781 14M9.5 16.2105C7.76858 16.2105 6.19032 15.5548 5 14.4781M2.78947 9.5H0M2.78947 9.5C2.78947 7.5253 3.64242 5.74981 5 4.52186M2.78947 9.5C2.78947 11.4747 3.64242 13.2502 5 14.4781M9.5 2.78947V0M9.5 2.78947C7.76858 2.78947 6.19032 3.4452 5 4.52186M9.5 2.78947C11.4747 2.78947 13.2502 3.64242 14.4781 5M5 4.52186L2.97814 2.5M14.4781 14L16.6887 16.2105M14.4781 5L16.6887 2.78947M5 14.4781L2.97814 16.5" stroke="white" strokeWidth="2" />
           </svg>

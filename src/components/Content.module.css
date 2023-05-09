@@ -1,0 +1,32 @@
+.line::before {
+  background-color: #3E3E3E;
+  content: "";
+  display: block;
+  left: 0;
+  position: absolute;
+  bottom: -35px;
+  height: 100%;
+  width: 2px;
+}
+
+.line:last-child::before {
+  background: linear-gradient(180deg, #3E3E3E 0%, rgba(62, 62, 62, 0) 100%);
+  bottom: 0px;
+}
+
+.line::after {
+  content: "";
+  display: block;
+  height: 10px;
+  width: 10px;
+  background-color: #1A1A1A;
+  border: 1px solid white;
+  border-radius: 50%;
+  left: -0.25%;
+  top: 5.5%;
+  position: absolute;
+}
+
+.gradientFill {
+  /* border: 2px solid #5982DD; */
+}
