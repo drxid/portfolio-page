@@ -3,7 +3,12 @@ import React from 'react'
 import ToggleDarkMode from './UI/toggle/toggleDarkMode'
 import ToggleLanguageMode from './UI/toggle/toggleLanguageMode'
 
-const Footer: React.FC = () => {
+type Props = {
+  isDarkMode: boolean
+  onDarkModeToggle: (isDarkMode: boolean) => void
+}
+
+const Footer: React.FC<Props> = ({ isDarkMode, onDarkModeToggle }) => {
   return (
     <footer className=' border-t border-solid border-[#3E3E3E] dark:border-[#ececec]'>
       <div className="flex h-14 justify-between items-center container">
@@ -40,7 +45,7 @@ const Footer: React.FC = () => {
         </section>
         <section className="">
           <div className='flex items-center justify-center gap-2'>
-            <ToggleDarkMode size='small' />
+            <ToggleDarkMode isDarkMode={isDarkMode} onDarkModeToggle={onDarkModeToggle} size='small' />
             <ToggleLanguageMode size='small' />
           </div>
         </section>

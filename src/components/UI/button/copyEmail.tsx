@@ -21,7 +21,7 @@ const CopyEmail: React.FC<Props> = (props: Props) => {
   }
 
   return (
-    <div className="relative">
+    <div className="order-2 md:order-1 relative">
 
       <CopyToClipboard text={props.email}>
         <button onClick={handleClick} className="group py-2 px-4 bg-[#212121] dark:bg-[#F5F5F5]  rounded-lg flex gap-1 justify-center items-center hover:bg-[#343434] transition-colors">

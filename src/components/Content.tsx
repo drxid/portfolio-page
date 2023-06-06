@@ -2,6 +2,7 @@ import React from 'react'
 
 import styles from './Content.module.css'
 import CopyEmail from './UI/button/copyEmail'
+import Achievements from './UI/achievements'
 
 function calcDate(startDate: string, endDate?: string): string {
   let currentDate
@@ -24,7 +25,7 @@ const keySkillsTags: string[] = [
   'Web design',
   'HTML5',
   'CSS',
-  'JavaScript ES6 +',
+  'JavaScript ES6+',
   'Vue 3',
   'Composition API',
   'Pinia',
@@ -34,6 +35,8 @@ const keySkillsTags: string[] = [
   'Vite',
   'Axios',
   'PWA',
+  'React (pet projects)',
+  'Svelte (pet projects)',
   'Sass',
   'SCSS',
   'Node.js',
@@ -49,6 +52,8 @@ const keySkillsTags: string[] = [
   'Adobe soft',
   'Figma',
 ]
+
+
 
 const Content: React.FC = () => {
   return (
@@ -99,7 +104,7 @@ const Content: React.FC = () => {
 
       </section>
 
-      <section className='container flex justify-between gap-24'>
+      <section className='container flex flex-col md:flex-row justify-between gap-x-24 gap-y-5'>
         <article className="">
           <h3 className='text-base mb-3'>About me</h3>
           <div className="space-y-3">
@@ -118,7 +123,7 @@ const Content: React.FC = () => {
               Russian — Native
             </p>
             <p className='text-[1.4rem]'>
-              English — B1 — Intermediate
+              English — A2 — Pre-Intermediate
             </p>
           </article>
           <article>
@@ -133,7 +138,7 @@ const Content: React.FC = () => {
       <section className='container'>
         <h3 className='text-base mb-3'>Key skills</h3>
         <div className="space-y-5">
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
 
             <div className="">
               <i className='text-[#D5D5D5] dark:text-[#626262] dark:hover:text-[#f26529] hover:text-[#f26529] transition-colors w-10 h-10'>
@@ -280,7 +285,7 @@ const Content: React.FC = () => {
           <div className="inline-flex flex-wrap gap-x-3 gap-y-2">
 
             {keySkillsTags.map(item => (
-              <div key={item} className="border-2 border-solid border-[#2F2F2F] text-[#A7A7A7] dark:text-[#636363] dark:border-[#F0F0F0] text-base py-1.5 px-3 rounded-xl">
+              <div key={item} className="border-2 border-solid border-[#2F2F2F] text-[#A7A7A7] dark:text-[#636363] dark:border-[#F0F0F0] text-sm md:text-base py-1.5 px-3 rounded-xl">
                 {item}
               </div>
             ))}
@@ -298,22 +303,30 @@ const Content: React.FC = () => {
             <h3 className='text-white dark:text-black text-3xl font-semibold mb-2'><span>Fullstack JS Developer</span> <span className='text-[#959595]'>in</span> <span>ООО Спектр</span></h3>
             <p className='text-[#959595] mb-5'>September 2021 — currently, <span className='text-white dark:text-black '>{calcDate('September 1, 2021')}</span></p>
 
-            <div className="flex gap-16">
+            <div className="flex md:gap-16">
               <section className='space-y-10'>
-                <section className="flex gap-10 mb-5">
-                  <a href="https://spektrtruck.ru" className='text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>Spektrtruck.ru
-                    <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
-                      <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
-                      </svg>
-                    </i></a>
+                <section className="flex flex-col md:flex-row gap-x-10 gap-y-3 mb-5">
+                  <a href="https://spektrtruck.ru" className='inline-flex text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>
+                    <span className='relative'>
+                      Spektrtruck.ru
+                      <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
+                        <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
+                        </svg>
+                      </i>
+                    </span>
+                  </a>
 
-                  <a href="https://spektrtruck.ru" className='text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>Design sistem presentation
-                    <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
-                      <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
-                      </svg>
-                    </i></a>
+                  <a href="https://spektrtruck.ru" className='inline-flex text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>
+                    <span className='relative'>Design sistem presentation
+
+                      <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
+                        <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
+                        </svg>
+                      </i>
+                    </span>
+                  </a>
                 </section>
 
                 <section className="">
@@ -321,21 +334,15 @@ const Content: React.FC = () => {
                   <p className='text-[0.85rem]'>SPEKTR Ltd. is engaged in: delivery of various world brands of warehouse equipment to the Russian market, service maintenance of various equipment for warehousing.</p>
                 </section>
 
-                <section>
-                  <h3 className='text-base mb-3'>Achievements</h3>
-                  <section className='space-y-3 max-h-52 overflow-hidden relative'>
-                    <div className="group bg-gradient-to-t from-[#1A1A1A] dark:from-white to-transparent absolute bottom-0 right-0 w-full h-[100px] flex justify-center items-center">
-                      <button className="py-2 px-4 bg-[#2F2F2F] dark:bg-[#626262] hover:bg-[#3a3a3a] transition-all rounded-lg text-white flex gap-1 justify-center items-center text-sm opacity-0 group-hover:opacity-100"><span className="font-medium">Show full text</span></button>
-                    </div>
-                    <p className='text-[0.85rem]'>The old site was outdated and had low traffic, the restart of the site and the development of a new design led to a sharp increase in attendance in the first month after the launch, thereafter the dynamics was only positive;</p>
-                    <p className='text-[0.85rem]'>SPA - frontend and backend systems, allowed to speed up site loading and improve the user experience, which many times led to an increase in the time spent by users on the site</p>
-                    <p className='text-[0.85rem]'>Development of crm for internal employees greatly simplified the processes of internal management and processing of service orders + overall integration of the spare parts manager and service manager's office, improving the performance of sales managers;</p>
-                    <p className='text-[0.85rem]'>Creation of the news section of the site in the format of "magazine" in the future will help to increase the awareness of users about the novelties of the company and improve communication between the company and customers.</p>
-                  </section>
-                </section>
+                <Achievements texts={[
+                  { text: `The old site was outdated and had low traffic, the restart of the site and the development of a new design led to a sharp increase in attendance in the first month after the launch, thereafter the dynamics was only positive;` },
+                  { text: `SPA - frontend and backend systems, allowed to speed up site loading and improve the user experience, which many times led to an increase in the time spent by users on the site;` },
+                  { text: `Development of crm for internal employees greatly simplified the processes of internal management and processing of service orders + overall integration of the spare parts manager and service manager's office, improving the performance of sales managers;` },
+                  { text: `Creation of the news section of the site in the format of "magazine" in the future will help to increase the awareness of users about the novelties of the company and improve communication between the company and customers.` },
+                ]} />
               </section>
 
-              <section className='space-y-10' style={{ flex: '0 0 55%' }}>
+              <section className='hidden md:block space-y-10' style={{ flex: '0 0 55%' }}>
                 <h3>What was done?</h3>
 
 
@@ -405,22 +412,30 @@ const Content: React.FC = () => {
             <h3 className='text-white dark:text-black  text-3xl font-semibold mb-2'><span>Fullstack JS Developer</span> <span className='text-[#959595]'>in</span> <span>own project (IE)</span></h3>
             <p className='text-[#959595] mb-5'>April 2022 — currently, <span className='text-white dark:text-black '>{calcDate('April 3, 2022')}</span></p>
 
-            <div className="flex gap-16">
+            <div className="flex md:gap-16">
               <section className='space-y-10'>
-                <section className="flex gap-10 mb-5">
-                  <a href="https://playloop.ru" className='text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>Playloop.ru
-                    <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
-                      <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
-                      </svg>
-                    </i></a>
+                <section className="flex flex-col md:flex-row gap-x-10 gap-y-3 mb-5">
+                  <a href="https://playloop.ru" className='inline-flex text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>
+                    <span className='relative'>Playloop.ru
 
-                  <a href="https://playloop.ru" className='text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>Design sistem presentation
-                    <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
-                      <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
-                      </svg>
-                    </i></a>
+                      <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
+                        <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
+                        </svg>
+                      </i>
+                    </span>
+                  </a>
+
+                  <a href="https://playloop.ru" className='inline-flex text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>
+                    <span className='relative'>Design sistem presentation
+
+                      <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
+                        <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
+                        </svg>
+                      </i>
+                    </span>
+                  </a>
                 </section>
 
                 <section className="">
@@ -428,18 +443,13 @@ const Content: React.FC = () => {
                   <p className='text-[0.85rem]'>Development of a personal commerce project "Playloop", an interactive PWA web companion application that creates an immersive audio narration and atmosphere for various board games.</p>
                 </section>
 
-                <section>
-                  <h3 className='text-base mb-3'>Achievements</h3>
-                  <section className='space-y-3 max-h-52 overflow-hidden relative'>
-                    <div className="group bg-gradient-to-t from-[#1A1A1A] dark:from-white to-transparent absolute bottom-0 right-0 w-full h-[100px] flex justify-center items-center">
-                      <button className="py-2 px-4 bg-[#2F2F2F] hover:bg-[#3a3a3a] transition-all rounded-lg text-white flex gap-1 justify-center items-center text-sm opacity-0 group-hover:opacity-100"><span className="font-medium">Show full text</span></button>
-                    </div>
-                    <p className='text-[0.85rem]'>In progress.</p>
-                  </section>
-                </section>
+                <Achievements texts={[
+                  { text: `Creation of the news section of the site in the format of "magazine" in the future will help to increase the awareness of users about the novelties of the company and improve communication between the company and customers.` },
+                  { text: `Creation of the news section of the site in the format of "magazine" in the future will help to increase the awareness of users about the novelties of the company and improve communication between the company and customers.` },
+                ]} />
               </section>
 
-              <section className='space-y-10' style={{ flex: '0 0 55%' }}>
+              <section className='hidden md:block space-y-10' style={{ flex: '0 0 55%' }}>
                 <h3>What was done?</h3>
 
 
@@ -504,7 +514,7 @@ const Content: React.FC = () => {
 
       <section className='container'>
         <div className="flex justify-center items-center">
-          <div className="p-40 space-y-6 flex flex-col justify-center items-center">
+          <div className="py-40 md:p-40 space-y-6 flex flex-col justify-center items-center">
             <p className={styles.gradientFill + ` text-[4.5rem] leading-[4rem] font-semibold`} >Lets <br /> work?</p>
 
             <CopyEmail email="work@drxid.ru" />
