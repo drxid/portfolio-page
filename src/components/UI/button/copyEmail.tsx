@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { EmailCopied } from '../../../LanguageDictionary'
+
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 type Props = {
@@ -43,7 +45,7 @@ const CopyEmail: React.FC<Props> = (props: Props) => {
       </CopyToClipboard>
 
       <div className={`${isVisible ? 'opacity-100 visible' : 'opacity-0 invisible'} transition-all `}>
-        <div className="flex items-center justify-center py-2 px-4 text-sm backdrop-blur-md bg-black/20 dark:bg-[#F5F5F5] absolute m-auto left-0 right-0 top-14 rounded-lg">The email was copied</div>
+        <div className="flex items-center justify-center py-2 px-4 text-sm backdrop-blur-md bg-black/20 dark:bg-[#F5F5F5] absolute m-auto left-0 right-0 top-14 rounded-lg"><EmailCopied/></div>
       </div>
 
 

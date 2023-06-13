@@ -27,6 +27,51 @@
   position: absolute;
 }
 
-.gradientFill {
-  /* border: 2px solid #5982DD; */
+
+.fadeInItem {
+  animation: fadeIn 600ms ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 100;
+    transform: translateY(0px);
+  }
+}
+
+.animDelay50 {
+  animation-delay: 50ms !important;
+}
+
+.animDelay100 {
+  animation-delay: 100ms !important;
+}
+
+.animDelay200 {
+  animation-delay: 200ms !important;
+}
+
+.animDelay300 {
+  animation-delay: 300ms !important;
+}
+
+.animDelay500 {
+  animation-delay: 500ms !important;
+}
+
+.animDelay700 {
+  animation-delay: 700ms !important;
+}
+
+.animDelay1000 {
+  animation-delay: 1000ms !important;
 }

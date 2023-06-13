@@ -2,7 +2,9 @@ import React from 'react'
 
 import styles from './Content.module.css'
 import CopyEmail from './UI/button/copyEmail'
-import Achievements from './UI/achievements'
+import AchievementsText from './UI/AchievementsText'
+
+import { Social, Work, AboutMe, Greeting, Point, Languages, Russian, English, Education, University, Presentation, AboutCompany, Currently, WhatDone, KeySkills, WorkPlaces, In, AboutOwnProject, September, April, Year, Month } from '../LanguageDictionary'
 
 function calcDate(startDate: string, endDate?: string): string {
   let currentDate
@@ -17,7 +19,8 @@ function calcDate(startDate: string, endDate?: string): string {
   const years = Math.floor(timeDiff / millisecondsInYear)
   const months = Math.floor((timeDiff % millisecondsInYear) / millisecondsInMonth)
 
-  return `${years} year${years !== 1 ? 's' : ''} ${months} month${months !== 1 ? 's' : ''}`
+  // ${years !== 1 ? 's' : ''}  ${months !== 1 ? 's' : ''}
+  return `${years} ${Year().props.children} ${months} ${Month().props.children}`
 }
 
 const keySkillsTags: string[] = [
@@ -58,19 +61,19 @@ const keySkillsTags: string[] = [
 const Content: React.FC = () => {
   return (
     <main className='py-10 space-y-16'>
-      <section className='container'>
+      <section className={`${styles.fadeInItem} ${styles.animDelay300} container`}>
         <div className="flex gap-16">
           <div className="space-y-2">
-            <h3 className='text-base'>Social</h3>
-            <div className="flex gap-5 justify-center items-center">
-              <a href='https://t.me/drxid' className='p-1 text-white dark:text-black hover:text-[#cdfbff] transition-colors'>
+            <h3 className='text-base'><Social /></h3>
+            <div className="flex gap-5 items-center">
+              <a href='https://t.me/drxid' className='hover:scale-110 transition-all duration-150 p-1 text-white dark:text-black hover:text-[#cdfbff]'>
                 <i className='w-9 h-9'>
                   <svg width="100%" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M29.5802 4.2353C31.3663 3.4667 33.281 5.01026 32.9657 6.9645L29.2407 30.047C28.8815 32.2726 26.4898 33.5497 24.492 32.4406C22.8202 31.5125 20.3398 30.0841 18.1044 28.5913C16.9882 27.8458 13.5702 25.4554 13.9904 23.7539C14.3496 22.2989 20.0955 16.8325 23.379 13.5815C24.6688 12.3045 24.0814 11.5668 22.5581 12.7426C18.7795 15.6593 12.7129 20.0938 10.7068 21.3419C8.93678 22.4429 8.01261 22.6308 6.91026 22.4429C4.89727 22.1001 3.03098 21.5692 1.5073 20.9237C-0.552053 20.0512 -0.451743 17.1588 1.50591 16.3165L29.5802 4.2353Z" fill="currentColor" />
                   </svg>
                 </i>
               </a>
-              <a href='https://vk.com/drxid' className='p-1 text-white dark:text-black hover:text-[#cdfbff] transition-colors'>
+              <a href='https://vk.com/drxid' className='hover:scale-110 transition-all duration-150 p-1 text-white dark:text-black hover:text-[#cdfbff]'>
                 <i className='w-9 h-9'>
                   <svg width="100%" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18.5183 27.661C6.90183 27.661 0.276077 19.8736 0 6.91525H5.81886C6.00999 16.4263 10.2997 20.455 13.6976 21.2857V6.91525H19.1769V15.118C22.5323 14.765 26.0571 11.027 27.2464 6.91525H32.7256C31.8124 11.9823 27.9898 15.7203 25.2715 17.257C27.9898 18.503 32.3435 21.7633 34 27.661H27.9686C26.6731 23.7154 23.4455 20.6627 19.1769 20.2474V27.661H18.5183Z" fill="currentColor" />
@@ -81,9 +84,9 @@ const Content: React.FC = () => {
           </div>
 
           <div className="space-y-2">
-            <h3 className='text-base'>Work</h3>
-            <div className="flex gap-5  justify-center items-center">
-              <a href='https://github.com/drxid' className='p-1 text-white dark:text-black hover:text-[#cdfbff] transition-colors'>
+            <h3 className='text-base'><Work /></h3>
+            <div className="flex gap-5  items-center">
+              <a href='https://github.com/drxid' className='hover:scale-110 transition-all duration-150 p-1 text-white dark:text-black hover:text-[#cdfbff]'>
                 <i className='w-9 h-9'>
                   <svg width="100%" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M17 0C26.3891 0 34 7.80287 34 17.43C34 25.1293 29.1346 31.6607 22.3839 33.9676C21.522 34.1393 21.216 33.595 21.216 33.1309C21.216 32.5563 21.2364 30.6795 21.2364 28.3471C21.2364 26.7219 20.6924 25.6612 20.0821 25.1206C23.868 24.6888 27.846 23.2148 27.846 16.5202C27.846 14.6162 27.1864 13.0625 26.095 11.8419C26.2718 11.4016 26.8549 9.62871 25.9284 7.22831C25.9284 7.22831 24.5038 6.76127 21.2585 9.01547C19.9002 8.62957 18.445 8.4354 17 8.4286C15.555 8.4354 14.1015 8.62957 12.7449 9.01547C9.4962 6.76127 8.0682 7.22831 8.0682 7.22831C7.1451 9.62871 7.7282 11.4016 7.9033 11.8419C6.817 13.0625 6.15231 14.6162 6.15231 16.5202C6.15231 23.1978 10.1218 24.6944 13.8975 25.1347C13.4113 25.5699 12.971 26.3377 12.818 27.4648C11.849 27.9102 9.3874 28.681 7.871 26.0171C7.871 26.0171 6.9717 24.3424 5.2649 24.22C5.2649 24.22 3.6074 24.198 5.1493 25.2792C5.1493 25.2792 6.2628 25.8147 7.0363 27.8292C7.0363 27.8292 8.03421 30.9401 12.7636 29.8861C12.7721 31.343 12.7874 32.7161 12.7874 33.1309C12.7874 33.5916 12.4746 34.1307 11.6263 33.9692C4.87049 31.6658 0 25.131 0 17.43C0 7.80287 7.6126 0 17 0Z" fill="currentColor" />
@@ -91,7 +94,7 @@ const Content: React.FC = () => {
                 </i>
               </a>
 
-              <a href='https://be.net/drxid' className='p-1 text-white dark:text-black hover:text-[#cdfbff] transition-colors'>
+              <a href='https://be.net/drxid' className='hover:scale-110 transition-all duration-150 p-1 text-white dark:text-black hover:text-[#cdfbff]'>
                 <i className='w-9 h-6'>
                   <svg width="100%" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M20.5793 4.42293H28.858V1.904H20.5793V4.42293ZM24.6601 9.48191C22.8133 9.48191 21.4107 10.6975 21.2757 12.9438H27.9013C27.4522 10.2779 26.3376 9.48191 24.6601 9.48191ZM24.9188 19.9004C26.624 19.9004 27.8753 18.7559 28.1307 17.7917H31.7169C30.6918 21.2789 28.5749 23.2373 24.774 23.2373C19.9235 23.2373 17.2014 19.5718 17.2014 14.708C17.2014 3.25379 32.7566 2.84313 31.9756 15.7776H21.2757C21.3798 18.4041 22.4 19.9004 24.9188 19.9004ZM8.78103 19.3964C10.7385 19.3964 12.1085 18.5964 12.1085 16.4377C12.1085 14.1986 10.8979 13.2274 8.86564 13.2274H3.96151V19.3964H8.78103ZM8.52232 9.86009C10.1511 9.86009 11.2754 9.05455 11.2754 7.18329C11.2754 5.21207 9.9672 4.60358 8.179 4.60358H3.96151V9.86009H8.52232ZM9.09669 0.762711C12.9546 0.762711 15.6361 2.11758 15.6361 6.33324C15.6361 8.42054 14.8469 9.97605 12.8537 11.0242C15.405 11.8294 16.6124 13.9439 16.6124 16.7222C16.6124 21.1324 13.3207 23.2373 9.38306 23.2373H-0.542358V0.762711H9.09669Z" fill="currentColor" />
@@ -104,39 +107,39 @@ const Content: React.FC = () => {
 
       </section>
 
-      <section className='container flex flex-col md:flex-row justify-between gap-x-24 gap-y-5'>
+      <section className={`${styles.fadeInItem} ${styles.animDelay300} container flex flex-col md:flex-row justify-between gap-x-24 gap-y-5`}>
         <article className="">
-          <h3 className='text-base mb-3'>About me</h3>
+          <h3 className='text-base mb-3'><AboutMe /></h3>
           <div className="space-y-3">
             <p className='text-lg'>
-              My name is Vadim 👋. I work as a JavaScript developer with a focus on frontend development. I have a passion for designing website layouts and interfaces. I enjoy creating visually appealing designs that enhance the user experience. In addition to frontend development, I also have experience in backend development.
+              <Greeting />
             </p>
             <p className='text-lg'>
-              I strive to build robust and efficient applications that meet the needs of users. I am dedicated to continuously learning and staying up-to-date with the latest technologies and best practices in the field of web development.
+              <Point />
             </p>
           </div>
         </article>
         <section className="space-y-5" style={{ flex: '0 0 40%' }}>
           <article>
-            <h3 className='text-base mb-3'>Languages</h3>
+            <h3 className='text-base mb-3'><Languages /></h3>
             <p className='text-[1.4rem]'>
-              Russian — Native
+              <Russian />
             </p>
             <p className='text-[1.4rem]'>
-              English — A2 — Pre-Intermediate
+              <English />
             </p>
           </article>
           <article>
-            <h3 className='text-base mb-3'>Higher education</h3>
+            <h3 className='text-base mb-3'><Education /></h3>
             <p className='max-w-md text-[1.4rem]'>
-              VVSU - Institute of Inform. Tech., Information Systems and Technologies
+              <University />
             </p>
           </article>
         </section>
       </section>
 
-      <section className='container'>
-        <h3 className='text-base mb-3'>Key skills</h3>
+      <section className={`${styles.fadeInItem} ${styles.animDelay500} container`}>
+        <h3 className='text-base mb-3'><KeySkills /></h3>
         <div className="space-y-5">
           <div className="flex flex-wrap gap-4">
 
@@ -294,14 +297,118 @@ const Content: React.FC = () => {
         </div>
       </section>
 
-      <section className='container'>
-        <h3 className='text-base mb-3'>Places of work and experience</h3>
+      <section className={`${styles.fadeInItem} ${styles.animDelay500} container`}>
+        <h3 className='text-base mb-3'><WorkPlaces /></h3>
 
         <article className={styles.line + ' relative pl-7'}>
           {/* border-l border-[#3E3E3E] border-solid pl-7 */}
           <section className="">
-            <h3 className='text-white dark:text-black text-3xl font-semibold mb-2'><span>Fullstack JS Developer</span> <span className='text-[#959595]'>in</span> <span>ООО Спектр</span></h3>
-            <p className='text-[#959595] mb-5'>September 2021 — currently, <span className='text-white dark:text-black '>{calcDate('September 1, 2021')}</span></p>
+            <h3 className='text-white dark:text-black  text-3xl font-semibold mb-2'><span>Fullstack JS Developer</span> <span className='text-[#959595]'><In /></span> <span>own project (IE)</span></h3>
+            <p className='text-[#959595] mb-5'><April /> 2022 — <Currently />, <span className='text-white dark:text-black '>{calcDate('April 3, 2022')}</span></p>
+
+            <div className="flex md:gap-16">
+              <section className='space-y-10'>
+                <section className="flex flex-col md:flex-row gap-x-10 gap-y-3 mb-5">
+                  <a href="https://playloop.ru" className='inline-flex text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>
+                    <span className='relative'>Playloop.ru
+
+                      <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
+                        <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
+                        </svg>
+                      </i>
+                    </span>
+                  </a>
+
+                  {/* <a href="https://playloop.ru" className='inline-flex text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>
+                    <span className='relative'><Presentation />
+
+                      <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
+                        <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
+                        </svg>
+                      </i>
+                    </span>
+                  </a> */}
+                </section>
+
+                <section className="">
+                  <h3 className='text-base mb-3'><AboutOwnProject /></h3>
+                  <p className='text-[0.85rem]'>Development of a personal commerce project "Playloop", an interactive PWA web companion application that creates an immersive audio narration and atmosphere for various board games.</p>
+                </section>
+
+                <AchievementsText texts={[
+                  { icon: 'Adaptive', text: `The app's fully adaptive interface, which works perfectly on your computer and smartphone, as well as active sound playback even on a locked smartphone screen, allows you to always use the app during a party during a board game;` },
+                  { icon: 'Volume', text: `Deep control of the playing music and sounds via the browser API and active audio playback even on a locked smartphone screen creates an atmospheric audio experience;` },
+                  { icon: 'Ai', text: `Voice model training using Python libraries, cloud tools and Microsoft Azure.` }
+                ]} />
+              </section>
+
+              <section className='hidden md:block space-y-10' style={{ flex: '0 0 55%' }}>
+                <h3><WhatDone /></h3>
+
+
+                <div className="flex md:gap-3 lg:gap-10 justify-start items-start">
+
+                  <section className='text-xs'>
+                    <h2 className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Design sistem</h2>
+                    <ul className='border-l border-solid border-[#363636] dark:border-[#E0E0E0] pt-2 pl-2 pr-2 m-2 space-y-2'>
+                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>App Design</li>
+                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Project logo</li>
+                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Presentation page</li>
+                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>UI kit</li>
+                    </ul>
+                  </section>
+
+                  <section className='text-xs'>
+                    <h2 className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Frontend</h2>
+                    <ul className='border-l border-solid border-[#363636] dark:border-[#E0E0E0] pt-2 pl-2 pr-2 m-2 space-y-2'>
+                      <li className='w-max'>
+                        <h2 className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>SPA</h2>
+                        <ol className='border-l border-solid border-[#363636] dark:border-[#E0E0E0] pt-2 pl-2 pr-2 m-2 space-y-2'>
+                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Vue 3</li>
+                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Vue Router</li>
+                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Pinia</li>
+                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Vite</li>
+                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Axios</li>
+                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Web Audio API</li>
+                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Howler.js</li>
+                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>CSS animations</li>
+                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>CSS transitions</li>
+                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>PWA</li>
+                        </ol>
+                      </li>
+                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Presentation page</li>
+                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>UI kit</li>
+                    </ul>
+                  </section>
+
+                  <section className='text-xs'>
+                    <h2 className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Backend</h2>
+                    <ul className='border-l border-solid border-[#363636] dark:border-[#E0E0E0] pt-2 pl-2 pr-2 m-2 space-y-2'>
+                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Express</li>
+                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>REST API</li>
+                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Auth</li>
+                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>MongoDb</li>
+                    </ul>
+                  </section>
+
+                </div>
+
+
+
+              </section>
+            </div>
+          </section>
+
+
+
+        </article>
+        <article className={styles.line + ' relative pl-7'}>
+          {/* border-l border-[#3E3E3E] border-solid pl-7 */}
+          <section className="">
+            <h3 className='text-white dark:text-black text-3xl font-semibold mb-2'><span>Fullstack JS Developer</span> <span className='text-[#959595]'><In /></span> <span>ООО Спектр</span></h3>
+            <p className='text-[#959595] mb-5'><September /> 2021 — <Currently />, <span className='text-white dark:text-black '>{calcDate('September 1, 2021')}</span></p>
 
             <div className="flex md:gap-16">
               <section className='space-y-10'>
@@ -317,8 +424,8 @@ const Content: React.FC = () => {
                     </span>
                   </a>
 
-                  <a href="https://spektrtruck.ru" className='inline-flex text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>
-                    <span className='relative'>Design sistem presentation
+                  {/* <a href="https://spektrtruck.ru" className='inline-flex text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>
+                    <span className='relative'><Presentation />
 
                       <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
                         <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -326,27 +433,27 @@ const Content: React.FC = () => {
                         </svg>
                       </i>
                     </span>
-                  </a>
+                  </a> */}
                 </section>
 
                 <section className="">
-                  <h3 className='text-base mb-3'>About company</h3>
+                  <h3 className='text-base mb-3'><AboutCompany /></h3>
                   <p className='text-[0.85rem]'>SPEKTR Ltd. is engaged in: delivery of various world brands of warehouse equipment to the Russian market, service maintenance of various equipment for warehousing.</p>
                 </section>
 
-                <Achievements texts={[
-                  { text: `The old site was outdated and had low traffic, the restart of the site and the development of a new design led to a sharp increase in attendance in the first month after the launch, thereafter the dynamics was only positive;` },
-                  { text: `SPA - frontend and backend systems, allowed to speed up site loading and improve the user experience, which many times led to an increase in the time spent by users on the site;` },
-                  { text: `Development of crm for internal employees greatly simplified the processes of internal management and processing of service orders + overall integration of the spare parts manager and service manager's office, improving the performance of sales managers;` },
-                  { text: `Creation of the news section of the site in the format of "magazine" in the future will help to increase the awareness of users about the novelties of the company and improve communication between the company and customers.` },
+                <AchievementsText texts={[
+                  { icon: 'Charts', text: `The old site was outdated and had low traffic, the relaunch of the site and the development of a new design led to a sharp increase in traffic in the first month after launch, subsequently the dynamics were only positive;` },
+                  { icon: 'Spa', text: `SPA - the new framework allowed to speed up site loading by 3 times and by 10 times for page transitions and improved the user experience, which many times increased the time spent by users on the site;` },
+                  { icon: 'Spektr', text: `A common corporate identity developed for all sites, outdoor advertising and documents increased trust in the company's brand;` },
+                  { icon: 'Crm', text: `Development of CRM for internal employees greatly simplified the processes of internal management and processing of service orders + overall integration of the cabinet of the spare parts manager and the cabinet of the service manager, increasing the effectiveness of sales managers through the autogeneration of commercials and documents.` },
                 ]} />
               </section>
 
               <section className='hidden md:block space-y-10' style={{ flex: '0 0 55%' }}>
-                <h3>What was done?</h3>
+                <h3><WhatDone /></h3>
 
 
-                <div className="flex gap-10 justify-start items-start">
+                <div className="flex md:gap-3 lg:gap-10 justify-start items-start">
 
                   <section className='text-xs'>
                     <h2 className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Design sistem</h2>
@@ -405,117 +512,13 @@ const Content: React.FC = () => {
 
 
         </article>
-
-        <article className={styles.line + ' relative pl-7'}>
-          {/* border-l border-[#3E3E3E] border-solid pl-7 */}
-          <section className="">
-            <h3 className='text-white dark:text-black  text-3xl font-semibold mb-2'><span>Fullstack JS Developer</span> <span className='text-[#959595]'>in</span> <span>own project (IE)</span></h3>
-            <p className='text-[#959595] mb-5'>April 2022 — currently, <span className='text-white dark:text-black '>{calcDate('April 3, 2022')}</span></p>
-
-            <div className="flex md:gap-16">
-              <section className='space-y-10'>
-                <section className="flex flex-col md:flex-row gap-x-10 gap-y-3 mb-5">
-                  <a href="https://playloop.ru" className='inline-flex text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>
-                    <span className='relative'>Playloop.ru
-
-                      <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
-                        <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
-                        </svg>
-                      </i>
-                    </span>
-                  </a>
-
-                  <a href="https://playloop.ru" className='inline-flex text-[#8FE4A7] dark:text-[#188E39] font-medium relative group'>
-                    <span className='relative'>Design sistem presentation
-
-                      <i className='absolute -right-2 top-1 w-1.5 h-1.5 text-[#8FE4A7] dark:text-[#188E39]'>
-                        <svg width="100%" className='group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fillRule="evenodd" clipRule="evenodd" d="M1.00001 0H6.50001V5.5H4.50001V3.41421L1.70712 6.20711L0.292908 4.79289L3.0858 2H1.00001V0Z" fill="currentColor" />
-                        </svg>
-                      </i>
-                    </span>
-                  </a>
-                </section>
-
-                <section className="">
-                  <h3 className='text-base mb-3'>About own project</h3>
-                  <p className='text-[0.85rem]'>Development of a personal commerce project "Playloop", an interactive PWA web companion application that creates an immersive audio narration and atmosphere for various board games.</p>
-                </section>
-
-                <Achievements texts={[
-                  { text: `Creation of the news section of the site in the format of "magazine" in the future will help to increase the awareness of users about the novelties of the company and improve communication between the company and customers.` },
-                  { text: `Creation of the news section of the site in the format of "magazine" in the future will help to increase the awareness of users about the novelties of the company and improve communication between the company and customers.` },
-                ]} />
-              </section>
-
-              <section className='hidden md:block space-y-10' style={{ flex: '0 0 55%' }}>
-                <h3>What was done?</h3>
-
-
-                <div className="flex gap-10 justify-start items-start">
-
-                  <section className='text-xs'>
-                    <h2 className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Design sistem</h2>
-                    <ul className='border-l border-solid border-[#363636] dark:border-[#E0E0E0] pt-2 pl-2 pr-2 m-2 space-y-2'>
-                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>App Design</li>
-                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Project logo</li>
-                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Presentation page</li>
-                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>UI kit</li>
-                    </ul>
-                  </section>
-
-                  <section className='text-xs'>
-                    <h2 className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Frontend</h2>
-                    <ul className='border-l border-solid border-[#363636] dark:border-[#E0E0E0] pt-2 pl-2 pr-2 m-2 space-y-2'>
-                      <li className='w-max'>
-                        <h2 className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>SPA</h2>
-                        <ol className='border-l border-solid border-[#363636] dark:border-[#E0E0E0] pt-2 pl-2 pr-2 m-2 space-y-2'>
-                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Vue 3</li>
-                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Vue Router</li>
-                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Pinia</li>
-                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Vite</li>
-                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Axios</li>
-                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Web Audio API</li>
-                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Howler.js</li>
-                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>CSS animations</li>
-                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>CSS transitions</li>
-                          <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>PWA</li>
-                        </ol>
-                      </li>
-                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Presentation page</li>
-                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>UI kit</li>
-                    </ul>
-                  </section>
-
-                  <section className='text-xs'>
-                    <h2 className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Backend</h2>
-                    <ul className='border-l border-solid border-[#363636] dark:border-[#E0E0E0] pt-2 pl-2 pr-2 m-2 space-y-2'>
-                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Express</li>
-                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>REST API</li>
-                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>Auth</li>
-                      <li className='w-max bg-[#2B2B2B] dark:bg-[#F2F2F2] px-3 py-1 rounded-lg'>MongoDb</li>
-                    </ul>
-                  </section>
-
-                </div>
-
-
-
-              </section>
-            </div>
-          </section>
-
-
-
-        </article>
       </section>
 
 
-      <section className='container'>
+      <section className={`${styles.fadeInItem} ${styles.animDelay500} container`}>
         <div className="flex justify-center items-center">
           <div className="py-40 md:p-40 space-y-6 flex flex-col justify-center items-center">
-            <p className={styles.gradientFill + ` text-[4.5rem] leading-[4rem] font-semibold`} >Lets <br /> work?</p>
+            <p className={styles.gradientFill + ` text-[4.5rem] leading-[4rem] font-semibold`} > Lets<br />Work?</p>
 
             <CopyEmail email="work@drxid.ru" />
           </div>
